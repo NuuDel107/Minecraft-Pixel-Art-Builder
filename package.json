@@ -1,7 +1,7 @@
 {
   "name": "minecraft-pixel-art-builder",
   "version": "1.0.0",
-  "description": "An automatic pixel art builder for Minecraft Bedrock",
+  "description": "Websocket server for MC Bedrock that can automatically build 2D images into worlds",
   "main": "app.js",
   "scripts": {
     "test": "node app.js"
