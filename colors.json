@@ -1,5 +1,5 @@
 {
-  "info" : "The RGB values of every solid and non-gravity affected block",
+  "info" : "The dominant RGB values of every solid and non-gravity affected block",
   "blocks" : {
     "ancient_debris": {
       "R": 63,
