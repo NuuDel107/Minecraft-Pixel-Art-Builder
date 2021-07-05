@@ -71,7 +71,7 @@
       58,
       58
     ],
-    "coarse_dirt": [
+    "dirt 1": [
       112,
       78,
       54
@@ -81,215 +81,90 @@
       97,
       97
     ],
-    "cobblestone_mossy": [
+    "mossy_cobblestone": [
       94,
       104,
       77
     ],
-    "concrete_black": [
+    "concrete 15": [
       12,
       12,
       20
     ],
-    "concrete_blue": [
+    "concrete 11": [
       44,
       44,
       140
     ],
-    "concrete_brown": [
+    "concrete 12": [
       100,
       60,
       36
     ],
-    "concrete_cyan": [
+    "concrete 9": [
       20,
       124,
       140
     ],
-    "concrete_gray": [
+    "concrete 7": [
       52,
       60,
       60
     ],
-    "concrete_green": [
+    "concrete 13": [
       76,
       92,
       36
     ],
-    "concrete_light_blue": [
+    "concrete 3": [
       36,
       140,
       196
     ],
-    "concrete_lime": [
+    "concrete 5": [
       92,
       172,
       28
     ],
-    "concrete_magenta": [
+    "concrete 2": [
       172,
       52,
       164
     ],
-    "concrete_orange": [
+    "concrete 1": [
       228,
       100,
       4
     ],
-    "concrete_pink": [
+    "concrete 6": [
       212,
       100,
       140
     ],
-    "concrete_powder_black": [
-      22,
-      24,
-      29
-    ],
-    "concrete_powder_blue": [
-      69,
-      71,
-      164
-    ],
-    "concrete_powder_brown": [
-      122,
-      83,
-      52
-    ],
-    "concrete_powder_cyan": [
-      36,
-      147,
-      157
-    ],
-    "concrete_powder_gray": [
-      76,
-      80,
-      83
-    ],
-    "concrete_powder_green": [
-      94,
-      116,
-      46
-    ],
-    "concrete_powder_light_blue": [
-      73,
-      179,
-      212
-    ],
-    "concrete_powder_lime": [
-      124,
-      188,
-      43
-    ],
-    "concrete_powder_magenta": [
-      189,
-      80,
-      181
-    ],
-    "concrete_powder_orange": [
-      226,
-      129,
-      29
-    ],
-    "concrete_powder_pink": [
-      227,
-      148,
-      178
-    ],
-    "concrete_powder_purple": [
-      130,
-      54,
-      176
-    ],
-    "concrete_powder_red": [
-      177,
-      60,
-      52
-    ],
-    "concrete_powder_silver": [
-      153,
-      153,
-      146
-    ],
-    "concrete_powder_white": [
-      217,
-      220,
-      221
-    ],
-    "concrete_powder_yellow": [
-      233,
-      198,
-      53
-    ],
-    "concrete_purple": [
+    "concrete 10": [
       100,
       36,
       156
     ],
-    "concrete_red": [
+    "concrete 14": [
       140,
       36,
       36
     ],
-    "concrete_silver": [
+    "concrete 8": [
       124,
       124,
       116
     ],
-    "concrete_white": [
+    "concrete 0": [
       204,
       212,
       212
     ],
-    "concrete_yellow": [
+    "concrete 4": [
       236,
       172,
       20
-    ],
-    "coral_blue": [
-      52,
-      76,
-      220
-    ],
-    "coral_blue_dead": [
-      159,
-      154,
-      146
-    ],
-    "coral_pink": [
-      229,
-      126,
-      189
-    ],
-    "coral_pink_dead": [
-      132,
-      124,
-      116
-    ],
-    "coral_purple": [
-      188,
-      36,
-      188
-    ],
-    "coral_purple_dead": [
-      157,
-      151,
-      143
-    ],
-    "coral_red": [
-      198,
-      47,
-      55
-    ],
-    "coral_red_dead": [
-      157,
-      150,
-      142
-    ],
-    "coral_yellow": [
-      212,
-      204,
-      60
     ],
     "cracked_nether_bricks": [
       49,
@@ -341,7 +216,7 @@
       84,
       60
     ],
-    "dirt_podzol": [
+    "podzol": [
       108,
       68,
       28
@@ -361,7 +236,7 @@
       228,
       164
     ],
-    "fletcher_table": [
+    "fletching_table": [
       198,
       180,
       124
@@ -391,82 +266,82 @@
       92,
       68
     ],
-    "hardened_clay_stained_black": [
+    "stained_hardened_clay 15": [
       36,
       20,
       20
     ],
-    "hardened_clay_stained_blue": [
+    "stained_hardened_clay 11": [
       76,
       60,
       92
     ],
-    "hardened_clay_stained_brown": [
+    "stained_hardened_clay 12": [
       76,
       52,
       36
     ],
-    "hardened_clay_stained_cyan": [
+    "stained_hardened_clay 9": [
       84,
       92,
       91
     ],
-    "hardened_clay_stained_gray": [
+    "stained_hardened_clay 7": [
       60,
       44,
       36
     ],
-    "hardened_clay_stained_green": [
+    "stained_hardened_clay 13": [
       76,
       84,
       44
     ],
-    "hardened_clay_stained_light_blue": [
+    "stained_hardened_clay 3": [
       116,
       108,
       140
     ],
-    "hardened_clay_stained_lime": [
+    "stained_hardened_clay 5": [
       100,
       116,
       52
     ],
-    "hardened_clay_stained_magenta": [
+    "stained_hardened_clay 2": [
       148,
       92,
       108
     ],
-    "hardened_clay_stained_orange": [
+    "stained_hardened_clay 1": [
       164,
       84,
       37
     ],
-    "hardened_clay_stained_pink": [
+    "stained_hardened_clay 6": [
       156,
       76,
       76
     ],
-    "hardened_clay_stained_purple": [
+    "stained_hardened_clay 10": [
       124,
       75,
       90
     ],
-    "hardened_clay_stained_red": [
+    "stained_hardened_clay 14": [
       140,
       60,
       44
     ],
-    "hardened_clay_stained_silver": [
+    "stained_hardened_clay 8": [
       140,
       108,
       100
     ],
-    "hardened_clay_stained_white": [
+    "stained_hardened_clay 0": [
       212,
       180,
       164
     ],
-    "hardened_clay_stained_yellow": [
+    "stained_hardened_clay 4": [
       188,
       132,
       35
@@ -476,7 +351,7 @@
       140,
       12
     ],
-    "honeycomb": [
+    "honeycomb_block": [
       252,
       214,
       105
@@ -491,7 +366,7 @@
       196,
       252
     ],
-    "ice_packed": [
+    "packed": [
       148,
       188,
       252
@@ -511,32 +386,32 @@
       108,
       108
     ],
-    "log_acacia": [
+    "log2 0": [
       169,
       89,
       52
     ],
-    "log_big_oak": [
+    "log2 1": [
       76,
       47,
       23
     ],
-    "log_birch": [
+    "log 2": [
       196,
       177,
       122
     ],
-    "log_jungle": [
+    "log 3": [
       175,
       126,
       89
     ],
-    "log_oak": [
+    "log 0": [
       89,
       72,
       42
     ],
-    "log_spruce": [
+    "log 1": [
       79,
       57,
       30
@@ -550,11 +425,6 @@
       84,
       132,
       28
-    ],
-    "mushroom_block_skin_red": [
-      252,
-      172,
-      172
     ],
     "mycelium": [
       111,
@@ -601,32 +471,32 @@
       30,
       68
     ],
-    "planks_acacia": [
+    "planks 4": [
       161,
       84,
       49
     ],
-    "planks_big_oak": [
+    "planks 5": [
       47,
       28,
       12
     ],
-    "planks_birch": [
+    "planks 2": [
       212,
       199,
       135
     ],
-    "planks_jungle": [
+    "planks 3": [
       182,
       131,
       96
     ],
-    "planks_oak": [
+    "planks 0": [
       110,
       91,
       47
     ],
-    "planks_spruce": [
+    "planks 1": [
       116,
       84,
       44
@@ -641,12 +511,12 @@
       60,
       68
     ],
-    "prismarine_bricks": [
+    "prismarine 2": [
       95,
       168,
       160
     ],
-    "prismarine_dark": [
+    "prismarine 1": [
       52,
       84,
       70
@@ -656,35 +526,20 @@
       124,
       23
     ],
-    "purpur_block": [
+    "purpur_block 0": [
       156,
       108,
       156
     ],
-    "purpur_pillar": [
-      188,
-      148,
-      188
-    ],
-    "quartz_block_chiseled": [
+    "quartz_block 1": [
       236,
       228,
       220
     ],
-    "quartz_block": [
+    "quartz_block 0": [
       236,
       230,
       222
-    ],
-    "quartz_ore": [
-      205,
-      194,
-      177
-    ],
-    "redstone_block": [
-      228,
-      36,
-      12
     ],
     "red_nether_brick": [
       68,
@@ -736,47 +591,47 @@
       114,
       114
     ],
-    "stonebrick": [
+    "stonebrick 0": [
       124,
       120,
       124
     ],
-    "stonebrick_cracked": [
+    "stonebrick 2": [
       99,
       99,
       99
     ],
-    "stonebrick_mossy": [
+    "stonebrick 1": [
       120,
       117,
       120
     ],
-    "stone_andesite": [
+    "stone 5": [
       140,
       140,
       140
     ],
-    "stone_andesite_smooth": [
+    "stone 6": [
       130,
       136,
       134
     ],
-    "stone_diorite": [
+    "stone 3": [
       225,
       225,
       225
     ],
-    "stone_diorite_smooth": [
+    "stone 4": [
       215,
       215,
       215
     ],
-    "stone_granite": [
+    "stone 1": [
       150,
       102,
       86
     ],
-    "stone_granite_smooth": [
+    "stone 2": [
       155,
       106,
       90
@@ -841,82 +696,82 @@
       133,
       130
     ],
-    "wool_colored_black": [
+    "wool 15": [
       15,
       16,
       21
     ],
-    "wool_colored_blue": [
+    "wool 11": [
       49,
       52,
       152
     ],
-    "wool_colored_brown": [
+    "wool 12": [
       105,
       65,
       35
     ],
-    "wool_colored_cyan": [
+    "wool 9": [
       20,
       128,
       140
     ],
-    "wool_colored_gray": [
+    "wool 7": [
       60,
       68,
       69
     ],
-    "wool_colored_green": [
+    "wool 13": [
       95,
       127,
       23
     ],
-    "wool_colored_light_blue": [
+    "wool 3": [
       68,
       189,
       224
     ],
-    "wool_colored_lime": [
+    "wool 5": [
       103,
       177,
       28
     ],
-    "wool_colored_magenta": [
+    "wool 2": [
       196,
       74,
       185
     ],
-    "wool_colored_orange": [
+    "wool 1": [
       237,
       111,
       13
     ],
-    "wool_colored_pink": [
+    "wool 6": [
       236,
       128,
       162
     ],
-    "wool_colored_purple": [
+    "wool 10": [
       110,
       35,
       163
     ],
-    "wool_colored_red": [
+    "wool 14": [
       152,
       36,
       36
     ],
-    "wool_colored_silver": [
+    "wool 8": [
       148,
       148,
       141
     ],
-    "wool_colored_white": [
+    "wool 0": [
       219,
       223,
       224
     ],
-    "wool_colored_yellow": [
+    "wool 4": [
       252,
       214,
       55
