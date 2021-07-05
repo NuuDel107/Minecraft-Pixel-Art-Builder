@@ -38,6 +38,7 @@ module.exports = class BlockConverter {
         var lowest = 0;
 
         for (var i = 1; i < distances.length; i++) {
+            
             if (distances[i] < distances[lowest])
             {
                 lowest = i;
@@ -45,7 +46,7 @@ module.exports = class BlockConverter {
                 
         }
 
-        console.log(this.blockKeys[lowest]);
+        return this.blockKeys[lowest];
     }
 
 
