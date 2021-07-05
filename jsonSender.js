@@ -27,5 +27,25 @@ module.exports = {
             console.log("Subscribed to event:", event);
         });
 
+    },
+    sendCommand: function(ws, cmd) {
+        ws.send(JSON.stringify({
+
+            "header": {
+                "version": 1,
+                "requestId": uuid.v4(),     // Send unique ID each time
+                "messagePurpose": "commandRequest",
+                "messageType": "commandRequest"
+            },
+            "body": {
+                "version": 1,               // TODO: Needed?
+                "commandLine": cmd,         // Define the command
+                "origin": {
+                    "type": "player"          // Message comes from player
+                }
+            }
+            
+
+        }));
     }
 }
