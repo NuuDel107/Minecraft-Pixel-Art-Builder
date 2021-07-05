@@ -2,7 +2,7 @@ const WebSocket = require("ws")
 const fs = require("fs")
 const request = require("request")
 
-const imageTypes = ["image/jpeg", "image/png"]
+const imageTypes = ["image/jpeg", "image/png", "image/bmp", "image/gif"]
 
 const Pixels = require("./pixels");
 const JSONSender = require("./jsonSender");
@@ -58,7 +58,7 @@ wss.on("connection", ws => {
                     }
                     
                     else {
-                        JSONSender.sendCommand(ws, "/say Image must be of type 'jpeg' or 'png'");
+                        JSONSender.sendCommand(ws, "/say ERROR: Image must be of type 'jpeg', 'png', 'bmp' or 'gif'");
                     }
                 });
 
