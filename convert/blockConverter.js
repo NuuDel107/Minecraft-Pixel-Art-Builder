@@ -35,15 +35,17 @@ module.exports = class BlockConverter {
             
         });
 
-        function indexOfSmallest(a) {
-            var lowest = 0;
-            for (var i = 1; i < a.length; i++) {
-            if (a[i] < a[lowest]) lowest = i;
-            }
-            return lowest;
-        };
+        var lowest = 0;
 
-        console.log(this.blockKeys[indexOfSmallest(distances)]);
+        for (var i = 1; i < distances.length; i++) {
+            if (distances[i] < distances[lowest])
+            {
+                lowest = i;
+            } 
+                
+        }
+
+        console.log(this.blockKeys[lowest]);
     }
 
 
