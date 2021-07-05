@@ -3,7 +3,7 @@ var fs = require("fs")
 module.exports = class BlockConverter {
     constructor() {
 
-        var colordata = fs.readFileSync("convert/colors.json");
+        var colordata = fs.readFileSync("blockConverter/colors.json");
         colordata = JSON.parse(colordata);
 
         this.blockColors = [];
