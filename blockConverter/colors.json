@@ -376,82 +376,12 @@
       37,
       40
     ],
-    "glazed_terracotta_black": [
-      145,
-      34,
-      34
-    ],
-    "glazed_terracotta_brown": [
-      28,
-      113,
-      131
-    ],
-    "glazed_terracotta_cyan": [
-      40,
-      88,
-      100
-    ],
-    "glazed_terracotta_gray": [
-      154,
-      154,
-      154
-    ],
-    "glazed_terracotta_green": [
-      209,
-      209,
-      212
-    ],
-    "glazed_terracotta_light_blue": [
-      233,
-      249,
-      252
-    ],
-    "glazed_terracotta_lime": [
-      252,
-      238,
-      168
-    ],
-    "glazed_terracotta_magenta": [
-      196,
-      76,
-      188
-    ],
-    "glazed_terracotta_orange": [
-      242,
-      122,
-      21
-    ],
-    "glazed_terracotta_pink": [
-      244,
-      174,
-      200
-    ],
-    "glazed_terracotta_purple": [
-      125,
-      42,
-      176
-    ],
-    "glazed_terracotta_red": [
-      180,
-      46,
-      39
-    ],
-    "glazed_terracotta_silver": [
-      189,
-      194,
-      195
-    ],
-    "glazed_terracotta_yellow": [
-      252,
-      238,
-      165
-    ],
     "gold_block": [
       252,
       232,
       76
     ],
-    "grass_carried": [
+    "grass": [
       74,
       112,
       40
