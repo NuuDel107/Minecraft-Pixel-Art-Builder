@@ -1,7 +1,12 @@
 const BlockConverter = require("./blockConverter/blockConverter");
+const GetPixels = require("./image-processing/getPixels");
 
-const testValue = [3, 187, 69];
 const bConverter = new BlockConverter();
 
-console.log(bConverter.colorToBlock(testValue))
 
+GetPixels.getPixels(120, 120, pixels => {
+    
+    pixels.forEach(colors => {
+        console.log(bConverter.colorToBlock([colors.r, colors.g, colors.b]))
+    });
+});
