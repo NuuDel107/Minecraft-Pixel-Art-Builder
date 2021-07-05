@@ -14,8 +14,6 @@ module.exports = class BlockConverter {
             this.blockColors.push(colordata.blocks[key]);
         });
 
-        console.log(this.blockKeys)
-
     }
 
     colorToBlock(RGBcolor)
