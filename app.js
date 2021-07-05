@@ -1,5 +1,6 @@
 const WebSocket = require("ws")
 const fs = require("fs")
+const request = require("request")
 
 const Pixels = require("./pixels");
 const JSONSender = require("./jsonSender");
@@ -19,17 +20,43 @@ wss.on("connection", ws => {
 
             if(message.substring(0, 6) == "!print")
             {
-                fs.writeFileSync("log.txt", " ");
-                Pixels.placePixels(200, 200, async commands => {
-                    for (var i = 0; i < commands.length; i++) {
+                const params = message.substring(7).split(" ");
 
-                        JSONSender.sendCommand(ws, commands[i]);
-                        console.log(commands[i]);
-                        fs.writeFileSync("log.txt", commands[i] + "\n", {flag: "a+"}); 
-                        await new Promise(resolve => setTimeout(resolve, 1));
-                        
-                    };
+                const uri = params[0];
+
+                var width = parseInt(params[1]);
+                var height = parseInt(params[2]);
+
+                console.log(uri, width, height);
+
+                request.head(uri, (err, res, body) => {
+                    console.log('content-type:', res.headers['content-type']);
+
+                    request(uri).pipe(fs.createWriteStream("image.png")).on("close", () => {
+
+                        fs.writeFileSync("log.txt", " ");
+
+
+
+                        Pixels.getPixels(width, height, async commands => {
+                            for (var i = 0; i < commands.length; i++) {
+        
+                                JSONSender.sendCommand(ws, commands[i]);
+                                console.log(commands[i]);
+        
+                                fs.writeFileSync("log.txt", commands[i] + "\n", {flag: "a+"}); 
+        
+                                await new Promise(resolve => setTimeout(resolve, 1));
+                                
+                            };
+                        });
+
+                    });
                 });
+
+
+
+
             }
         }
     });
