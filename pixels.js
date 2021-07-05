@@ -1,3 +1,4 @@
+const fs = require("fs")
 const Jimp = require("jimp");
 
 const BlockConverter = require("./blockConverter/blockConverter");
@@ -5,19 +6,27 @@ const bConverter = new BlockConverter();
 
 module.exports = {
     
-    placePixels: async (width, height, callback) => {
+    getPixels: (width, height, callback) => {
 
 
         var commands = [];
 
-        Jimp.read("test.png", async (err, img) => {
+        Jimp.read("image.png", (err, img) => {
             if (err) throw err;
 
-            img.resize(width, height);
-
-            for (var y = 1; y <= width; y++)
+            if(Number.isNaN(height))
             {
-                for(var x = 1; x <= height; x++)
+                img.resize(width, Jimp.AUTO);
+            }
+            else {
+                img.resize(width, height);
+            }
+
+            height = img.bitmap.height;
+
+            for (var y = 1; y <= height; y++)
+            {
+                for(var x = 1; x <= width; x++)
                 {
                     var hexColor = img.getPixelColor(x, y);
 
@@ -33,6 +42,10 @@ module.exports = {
                     
                 }
             }
+
+            fs.unlink("image.png", (err) => {
+                if (err) throw err;
+            })
 
             callback(commands);
 
