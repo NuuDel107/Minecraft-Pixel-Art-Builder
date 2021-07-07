@@ -32,12 +32,15 @@ module.exports = {
 
                     var RGBcolor = Jimp.intToRGBA(hexColor);
                     
-                    
-                    var block = bConverter.colorToBlock([RGBcolor.r, RGBcolor.g, RGBcolor.b]);
+                    if(RGBcolor.a != 0)
+                    {
+                        var block = bConverter.colorToBlock([RGBcolor.r, RGBcolor.g, RGBcolor.b]);
                     
 
-                    cmd = "/setblock " + x + " 10 " + y + " " + block;
-                    commands.push(cmd);
+                        cmd = "/setblock " + x + " 3 " + y + " " + block;
+                        commands.push(cmd);
+                    }
+
                     
                     
                 }
