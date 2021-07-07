@@ -50,10 +50,11 @@ wss.on("connection", ws => {
                                     for (var i = 0; i < commands.length; i++) {
                 
                                         JSONSender.sendCommand(ws, commands[i]);
+
+                                        /* for debugging:
                                         console.log(commands[i]);
-                
                                         fs.writeFileSync("log.txt", commands[i] + "\n", {flag: "a+"}); 
-                
+                                        */
                                         await new Promise(resolve => setTimeout(resolve, 1));
                                         
                                     };
@@ -70,9 +71,6 @@ wss.on("connection", ws => {
                         JSONSender.say(ws, "ERROR: Image not found (check link spelling?)");
                     }
                 });
-
-
-
 
             }
         }
