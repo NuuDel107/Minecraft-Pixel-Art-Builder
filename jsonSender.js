@@ -47,5 +47,25 @@ module.exports = {
             
 
         }));
+    },
+    say: function(ws, message) {
+        ws.send(JSON.stringify({
+
+            "header": {
+                "version": 1,
+                "requestId": uuid.v4(),     // Send unique ID each time
+                "messagePurpose": "commandRequest",
+                "messageType": "commandRequest"
+            },
+            "body": {
+                "version": 1,               // TODO: Needed?
+                "commandLine": "/say " + message,         // Define the command
+                "origin": {
+                    "type": "player"          // Message comes from player
+                }
+            }
+            
+
+        }));
     }
 }
