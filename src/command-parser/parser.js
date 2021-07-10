@@ -55,8 +55,9 @@ module.exports = {
             
             if(percentage >= lastPercentLog + 10)
             {
-                JSONSender.say(ws, lastPercentLog + "% done");
                 lastPercentLog += 10;
+                JSONSender.say(ws, lastPercentLog + "% done");
+                
             }
             
 
