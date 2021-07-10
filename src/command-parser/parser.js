@@ -1,13 +1,15 @@
 const rectangleDetect = require("./rectangleDetect");
+const JSONSender = require("../mc-server/jsonSender");
 
 module.exports = {
-    parse : function(block2D) {
+    parse : function(ws, block2D) {
 
         const yPos = 3;
 
         var commandList = [];
         var blockList = [];
         
+        JSONSender.say(ws, "Parsing commands:")
 
         block2D.forEach(blockLine => {
             blockLine.forEach(block => {
@@ -18,11 +20,14 @@ module.exports = {
             });
         });
 
-        
-        blockList.forEach(listBlock => {
-            let mat = [];
+        const blockListLength = blockList.length;
 
-            
+        var blockCounter = 0;
+        var lastPercentLog = 0;
+
+        blockList.forEach(listBlock => {
+
+            let mat = [];
 
             for (let i = 0; i < block2D.length; i++ )
             {
@@ -45,6 +50,18 @@ module.exports = {
             console.log("\n\n")
 
             var rectanglePositions = rectangleDetect.detect(mat);
+
+            const percentage = (100 * blockCounter) / blockListLength;
+            
+            if(percentage >= lastPercentLog + 10)
+            {
+                JSONSender.say(ws, lastPercentLog + "% done");
+                lastPercentLog += 10;
+            }
+            
+
+            blockCounter++;
+            
             
             rectanglePositions.forEach(rectPos => {
                 const cmd = ["/fill", rectPos.x1, yPos, rectPos.y1, rectPos.x2, yPos, rectPos.y2, listBlock].join(" ")
@@ -54,6 +71,8 @@ module.exports = {
 
 
         });
+
+        JSONSender.say(ws, "100% done");
 
         return commandList;
 
