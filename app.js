@@ -4,8 +4,8 @@ const request = require("request")
 
 const imageTypes = ["image/jpeg", "image/png", "image/bmp", "image/gif"]
 
-const Pixels = require("./pixels");
-const JSONSender = require("./jsonSender");
+const Pixels = require("./src/image-pixels/pixels");
+const JSONSender = require("./src/mc-server/jsonSender");
 
 const wss = new WebSocket.Server({ port: 80 })
 
@@ -46,7 +46,7 @@ wss.on("connection", ws => {
 
 
 
-                                Pixels.getPixels(width, height, async commands => {
+                                Pixels.get(width, height, async commands => {
                                     for (var i = 0; i < commands.length; i++) {
                 
                                         JSONSender.sendCommand(ws, commands[i]);
