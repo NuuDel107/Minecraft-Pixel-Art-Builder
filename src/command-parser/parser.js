@@ -9,7 +9,7 @@ module.exports = {
         var commandList = [];
         var blockList = [];
         
-        JSONSender.say(ws, "Parsing commands:")
+        JSONSender.say(ws, "Parsing commands...")
 
         block2D.forEach(blockLine => {
             blockLine.forEach(block => {
@@ -73,7 +73,7 @@ module.exports = {
 
         });
 
-        JSONSender.say(ws, "100% done");
+        JSONSender.say(ws, "100% done!");
 
         return commandList;
 
