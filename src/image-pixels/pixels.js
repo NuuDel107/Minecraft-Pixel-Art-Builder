@@ -3,15 +3,18 @@ const Jimp = require("jimp");
 
 const BlockConverter = require("../block-converter/blockConverter");
 const bConverter = new BlockConverter();
+const JSONSender = require("../mc-server/jsonSender");
 
 
 module.exports = {
     
-    get: (width, height, callback) => {
+    get: (ws, width, height, callback) => {
 
 
         let block2D = [];
         let blocks = [];
+
+        JSONSender.say(ws, "Processing image...");
 
         Jimp.read("image.png", (err, img) => {
             if (err) throw err;
@@ -54,7 +57,7 @@ module.exports = {
             })
 
             
-
+            JSONSender.say(ws, "Done!");
             callback(block2D);
 
             
