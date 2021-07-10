@@ -3,7 +3,7 @@ const Jimp = require("jimp");
 
 const BlockConverter = require("../block-converter/blockConverter");
 const bConverter = new BlockConverter();
-const CommandParser = require("../command-parser/parser");
+
 
 module.exports = {
     
@@ -53,9 +53,9 @@ module.exports = {
                 if (err) throw err;
             })
 
-            const commands = CommandParser.parse(block2D);
+            
 
-            callback(commands);
+            callback(block2D);
 
             
         });
