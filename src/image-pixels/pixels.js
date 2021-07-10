@@ -10,8 +10,8 @@ module.exports = {
     get: (width, height, callback) => {
 
 
-        var block2D = [];
-        var blocks = [];
+        let block2D = [];
+        let blocks = [];
 
         Jimp.read("image.png", (err, img) => {
             if (err) throw err;
@@ -26,17 +26,17 @@ module.exports = {
 
             height = img.bitmap.height;
 
-            for (var y = 1; y <= height; y++)
+            for (let y = 1; y <= height; y++)
             {
-                for(var x = 1; x <= width; x++)
+                for(let x = 1; x <= width; x++)
                 {
-                    var hexColor = img.getPixelColor(x, y);
+                    const hexColor = img.getPixelColor(x, y);
 
-                    var RGBcolor = Jimp.intToRGBA(hexColor);
+                    const RGBcolor = Jimp.intToRGBA(hexColor);
                     
                     if(RGBcolor.a != 0)
                     {
-                        var block = bConverter.colorToBlock([RGBcolor.r, RGBcolor.g, RGBcolor.b]);
+                        const block = bConverter.colorToBlock([RGBcolor.r, RGBcolor.g, RGBcolor.b]);
 
                         blocks.push(block);
                     }

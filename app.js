@@ -29,8 +29,8 @@ wss.on("connection", ws => {
 
                 const uri = params[0];
 
-                var width = parseInt(params[1]);
-                var height = parseInt(params[2]);
+                let width = parseInt(params[1]);
+                let height = parseInt(params[2]);
 
                 console.log(uri, width, height);
 
@@ -47,7 +47,7 @@ wss.on("connection", ws => {
 
 
                                 Pixels.get(width, height, async commands => {
-                                    for (var i = 0; i < commands.length; i++) {
+                                    for (let i = 0; i < commands.length; i++) {
                 
                                         JSONSender.sendCommand(ws, commands[i]);
 
