@@ -62,6 +62,7 @@ wss.on("connection", ws => {
 
                                         const commands = CommandParser.parse(ws, block2D);
 
+                                        JSONSender.say(ws, "Printing...");
                                         for (let i = 0; i < commands.length; i++) {
                     
                                             JSONSender.sendCommand(ws, commands[i]);
@@ -73,6 +74,8 @@ wss.on("connection", ws => {
                                             await new Promise(resolve => setTimeout(resolve, 1));
                                             
                                         };
+
+                                        JSONSender.say(ws, "Done!");
                                     });
 
                                 });
