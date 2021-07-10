@@ -58,7 +58,7 @@ wss.on("connection", ws => {
 
 
 
-                                    Pixels.get(width, height, async block2D => {
+                                    Pixels.get(ws, width, height, async block2D => {
 
                                         const commands = CommandParser.parse(ws, block2D);
 
