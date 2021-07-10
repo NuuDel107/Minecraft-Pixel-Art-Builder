@@ -27,50 +27,62 @@ wss.on("connection", ws => {
             {
                 const params = message.substring(7).split(" ");
 
-                const uri = params[0];
+                if(params[0] == "help")
+                {
+                    JSONSender.say("Command syntax: ");
+                    JSONSender.say("!print (image url) (width) (height)*");
+                    JSONSender.say("Examples: ");
+                    JSONSender.say("!print https://www.google.com/images/srpr/logo3w.png 100");
+                    JSONSender.say("!print https://i.pinimg.com/originals/b0/46/8c/b0468c61baa72515ada2838c236466e8.jpg 69 69");
+                }
+                else {
 
-                let width = parseInt(params[1]);
-                let height = parseInt(params[2]);
+                    const uri = params[0];
 
-                console.log(uri, width, height);
+                    let width = parseInt(params[1]);
+                    let height = parseInt(params[2]);
 
-                request.head(uri, (err, res, body) => {
-                    if(res != undefined)
-                    {
-                        if (imageTypes.includes(res.headers['content-type']))
+                    console.log(uri, width, height);
+
+                    request.head(uri, (err, res, body) => {
+                        if(res != undefined)
                         {
+                            if (imageTypes.includes(res.headers['content-type']))
+                            {
 
-                            request(uri).pipe(fs.createWriteStream("image.png")).on("close", () => {
+                                request(uri).pipe(fs.createWriteStream("image.png")).on("close", () => {
 
-                                fs.writeFileSync("log.txt", " ");
+                                    fs.writeFileSync("log.txt", " ");
 
 
 
-                                Pixels.get(width, height, async commands => {
-                                    for (let i = 0; i < commands.length; i++) {
-                
-                                        JSONSender.sendCommand(ws, commands[i]);
+                                    Pixels.get(width, height, async commands => {
+                                        for (let i = 0; i < commands.length; i++) {
+                    
+                                            JSONSender.sendCommand(ws, commands[i]);
 
-                                        /* for debugging:
-                                        console.log(commands[i]);
-                                        fs.writeFileSync("log.txt", commands[i] + "\n", {flag: "a+"}); 
-                                        */
-                                        await new Promise(resolve => setTimeout(resolve, 1));
-                                        
-                                    };
+                                            /* for debugging:
+                                            console.log(commands[i]);
+                                            fs.writeFileSync("log.txt", commands[i] + "\n", {flag: "a+"}); 
+                                            */
+                                            await new Promise(resolve => setTimeout(resolve, 1));
+                                            
+                                        };
+                                    });
+
                                 });
-
-                            });
+                            }
+                            
+                            else {
+                                JSONSender.say(ws, "ERROR: Image must be of type 'jpeg', 'png', 'bmp' or 'gif'");
+                            }
                         }
-                        
                         else {
-                            JSONSender.say(ws, "ERROR: Image must be of type 'jpeg', 'png', 'bmp' or 'gif'");
+                            JSONSender.say(ws, "ERROR: Image not found (check link spelling?)");
                         }
-                    }
-                    else {
-                        JSONSender.say(ws, "ERROR: Image not found (check link spelling?)");
-                    }
-                });
+                    });
+
+                }
 
             }
         }
