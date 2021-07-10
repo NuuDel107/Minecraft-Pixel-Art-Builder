@@ -1,15 +1,17 @@
 const fs = require("fs")
 const Jimp = require("jimp");
 
-const BlockConverter = require("./blockConverter/blockConverter");
+const BlockConverter = require("../block-converter/blockConverter");
 const bConverter = new BlockConverter();
+const CommandParser = require("../command-parser/parser");
 
 module.exports = {
     
-    getPixels: (width, height, callback) => {
+    get: (width, height, callback) => {
 
 
-        var commands = [];
+        var block2D = [];
+        var blocks = [];
 
         Jimp.read("image.png", (err, img) => {
             if (err) throw err;
@@ -35,20 +37,23 @@ module.exports = {
                     if(RGBcolor.a != 0)
                     {
                         var block = bConverter.colorToBlock([RGBcolor.r, RGBcolor.g, RGBcolor.b]);
-                    
 
-                        cmd = "/setblock " + x + " 3 " + y + " " + block;
-                        commands.push(cmd);
+                        blocks.push(block);
                     }
 
                     
                     
                 }
+
+                block2D.push(blocks);
+                blocks = [];
             }
 
             fs.unlink("image.png", (err) => {
                 if (err) throw err;
             })
+
+            const commands = CommandParser.parse(block2D);
 
             callback(commands);
 
