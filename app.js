@@ -2,10 +2,12 @@ const WebSocket = require("ws")
 const fs = require("fs")
 const request = require("request")
 
-const imageTypes = ["image/jpeg", "image/png", "image/bmp", "image/gif"]
-
 const Pixels = require("./src/image-pixels/pixels");
 const JSONSender = require("./src/mc-server/jsonSender");
+const CommandParser = require("./src/command-parser/parser");
+
+const imageTypes = ["image/jpeg", "image/png", "image/bmp", "image/gif"]
+
 
 const wss = new WebSocket.Server({ port: 80 })
 
@@ -29,11 +31,11 @@ wss.on("connection", ws => {
 
                 if(params[0] == "help")
                 {
-                    JSONSender.say("Command syntax: ");
-                    JSONSender.say("!print (image url) (width) (height)*");
-                    JSONSender.say("Examples: ");
-                    JSONSender.say("!print https://www.google.com/images/srpr/logo3w.png 100");
-                    JSONSender.say("!print https://i.pinimg.com/originals/b0/46/8c/b0468c61baa72515ada2838c236466e8.jpg 69 69");
+                    JSONSender.say(ws, "Command syntax: ");
+                    JSONSender.say(ws, "!print (image url) (width) (height)*");
+                    JSONSender.say(ws, "Examples: ");
+                    JSONSender.say(ws, "!print https://www.google.com/images/srpr/logo3w.png 100");
+                    JSONSender.say(ws, "!print https://i.pinimg.com/originals/b0/46/8c/b0468c61baa72515ada2838c236466e8.jpg 69 69");
                 }
                 else {
 
@@ -56,7 +58,10 @@ wss.on("connection", ws => {
 
 
 
-                                    Pixels.get(width, height, async commands => {
+                                    Pixels.get(width, height, async block2D => {
+
+                                        const commands = CommandParser.parse(ws, block2D);
+
                                         for (let i = 0; i < commands.length; i++) {
                     
                                             JSONSender.sendCommand(ws, commands[i]);
