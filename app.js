@@ -67,10 +67,9 @@ wss.on("connection", ws => {
                     
                                             JSONSender.sendCommand(ws, commands[i]);
 
-                                            /* for debugging:
-                                            console.log(commands[i]);
+                                            
                                             fs.writeFileSync("log.txt", commands[i] + "\n", {flag: "a+"}); 
-                                            */
+                                            
                                             await new Promise(resolve => setTimeout(resolve, 1));
                                             
                                         };
