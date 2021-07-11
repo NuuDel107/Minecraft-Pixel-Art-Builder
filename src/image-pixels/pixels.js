@@ -37,7 +37,12 @@ module.exports = {
 
                     const RGBcolor = Jimp.intToRGBA(hexColor);
                     
-                    if(RGBcolor.a != 0)
+                    if(RGBcolor.a == 0)
+                    {
+                        blocks.push("air");
+                    }
+                    
+                    else 
                     {
                         const block = bConverter.colorToBlock([RGBcolor.r, RGBcolor.g, RGBcolor.b]);
 
