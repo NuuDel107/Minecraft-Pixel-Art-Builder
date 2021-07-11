@@ -27,6 +27,11 @@ module.exports = {
 
         blockList.forEach(listBlock => {
 
+            if(listBlock == "air")
+            {
+                return;
+            }
+            
             let mat = [];
 
             for (let i = 0; i < block2D.length; i++ )
