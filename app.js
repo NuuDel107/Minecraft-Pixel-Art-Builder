@@ -2,10 +2,12 @@ const WebSocket = require("ws")
 const fs = require("fs")
 const request = require("request")
 
+const Pixels = require("./src/image-pixels/pixels");
+const JSONSender = require("./src/mc-server/jsonSender");
+const CommandParser = require("./src/command-parser/parser");
+
 const imageTypes = ["image/jpeg", "image/png", "image/bmp", "image/gif"]
 
-const Pixels = require("./pixels");
-const JSONSender = require("./jsonSender");
 
 const wss = new WebSocket.Server({ port: 80 })
 
@@ -27,50 +29,67 @@ wss.on("connection", ws => {
             {
                 const params = message.substring(7).split(" ");
 
-                const uri = params[0];
+                if(params[0] == "help")
+                {
+                    JSONSender.say(ws, "Command syntax: ");
+                    JSONSender.say(ws, "!print (image url) (width) (height)*");
+                    JSONSender.say(ws, "Examples: ");
+                    JSONSender.say(ws, "!print https://www.google.com/images/srpr/logo3w.png 100");
+                    JSONSender.say(ws, "!print https://i.pinimg.com/originals/b0/46/8c/b0468c61baa72515ada2838c236466e8.jpg 69 69");
+                }
+                else {
 
-                var width = parseInt(params[1]);
-                var height = parseInt(params[2]);
+                    const uri = params[0];
 
-                console.log(uri, width, height);
+                    let width = parseInt(params[1]);
+                    let height = parseInt(params[2]);
 
-                request.head(uri, (err, res, body) => {
-                    if(res != undefined)
-                    {
-                        if (imageTypes.includes(res.headers['content-type']))
+                    console.log(uri, width, height);
+
+                    request.head(uri, (err, res, body) => {
+                        if(res != undefined)
                         {
+                            if (imageTypes.includes(res.headers['content-type']))
+                            {
 
-                            request(uri).pipe(fs.createWriteStream("image.png")).on("close", () => {
+                                request(uri).pipe(fs.createWriteStream("image.png")).on("close", () => {
 
-                                fs.writeFileSync("log.txt", " ");
+                                    fs.writeFileSync("log.txt", " ");
 
 
 
-                                Pixels.getPixels(width, height, async commands => {
-                                    for (var i = 0; i < commands.length; i++) {
-                
-                                        JSONSender.sendCommand(ws, commands[i]);
+                                    Pixels.get(ws, width, height, async block2D => {
 
-                                        /* for debugging:
-                                        console.log(commands[i]);
-                                        fs.writeFileSync("log.txt", commands[i] + "\n", {flag: "a+"}); 
-                                        */
-                                        await new Promise(resolve => setTimeout(resolve, 1));
-                                        
-                                    };
+                                        const commands = CommandParser.parse(ws, block2D);
+
+                                        JSONSender.say(ws, "Printing...");
+                                        for (let i = 0; i < commands.length; i++) {
+                    
+                                            JSONSender.sendCommand(ws, commands[i]);
+
+                                            
+                                            fs.writeFileSync("log.txt", commands[i] + "\n", {flag: "a+"}); 
+                                            
+                                            await new Promise(resolve => setTimeout(resolve, 1));
+                                            
+                                        };
+
+                                        JSONSender.say(ws, "Done!");
+                                    });
+
                                 });
-
-                            });
+                            }
+                            
+                            else {
+                                JSONSender.say(ws, "ERROR: Image must be of type 'jpeg', 'png', 'bmp' or 'gif'");
+                            }
                         }
-                        
                         else {
-                            JSONSender.say(ws, "ERROR: Image must be of type 'jpeg', 'png', 'bmp' or 'gif'");
+                            JSONSender.say(ws, "ERROR: Image not found (check link spelling?)");
                         }
-                    }
-                    else {
-                        JSONSender.say(ws, "ERROR: Image not found (check link spelling?)");
-                    }
-                });
+                    });
+
+                }
 
             }
         }
