@@ -2,9 +2,9 @@ const WebSocket = require("ws")
 const fs = require("fs")
 const request = require("request")
 
-const Pixels = require("./src/image-pixels/pixels");
-const JSONSender = require("./src/mc-server/jsonSender");
-const CommandParser = require("./src/command-parser/parser");
+const Pixels = require("./image-pixels/pixels");
+const JSONSender = require("./mc-server/jsonSender");
+const CommandParser = require("./command-parser/parser");
 
 const imageTypes = ["image/jpeg", "image/png", "image/bmp", "image/gif"]
 
