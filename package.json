@@ -4,7 +4,7 @@
   "description": "Websocket server for MC Bedrock that can automatically build 2D images into worlds",
   "main": "app.js",
   "scripts": {
-    "test": "node app.js"
+    "start": "node src/app.js"
   },
   "author": "NuuDel107",
   "license": "MIT",
