@@ -59,7 +59,7 @@ module.exports = {
             },
             "body": {
                 "version": 1,               // TODO: Needed?
-                "commandLine": "/say " + message,         // Define the command
+                "commandLine": '/tellraw @a {"rawtext":[{"text":"' + message + '"}]}',         // Define the command
                 "origin": {
                     "type": "player"          // Message comes from player
                 }
