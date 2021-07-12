@@ -11,7 +11,7 @@ const imageTypes = ["image/jpeg", "image/png", "image/bmp", "image/gif"];
 const PORT = 80;
 const wss = new WebSocket.Server({ port: PORT });
 
-console.log("Listening on port", PORT)
+console.log("Listening on port", PORT);
 
 
 wss.on("connection", ws => {
@@ -56,7 +56,7 @@ wss.on("connection", ws => {
 
                                 request(uri).pipe(fs.createWriteStream("image.png")).on("close", () => {
 
-                                    fs.writeFileSync("log.txt", " ");
+                                    fs.writeFileSync("../log.txt", " ");
 
 
 
@@ -70,7 +70,7 @@ wss.on("connection", ws => {
                                             JSONSender.sendCommand(ws, commands[i]);
 
                                             
-                                            fs.writeFileSync("log.txt", commands[i] + "\n", {flag: "a+"}); 
+                                            fs.writeFileSync("../log.txt", commands[i] + "\n", {flag: "a+"}); 
                                             
                                             await new Promise(resolve => setTimeout(resolve, 1));
                                             
