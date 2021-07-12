@@ -6,10 +6,12 @@ const Pixels = require("./image-pixels/pixels");
 const JSONSender = require("./mc-server/jsonSender");
 const CommandParser = require("./command-parser/parser");
 
-const imageTypes = ["image/jpeg", "image/png", "image/bmp", "image/gif"]
+const imageTypes = ["image/jpeg", "image/png", "image/bmp", "image/gif"];
 
+const PORT = 80;
+const wss = new WebSocket.Server({ port: PORT });
 
-const wss = new WebSocket.Server({ port: 80 })
+console.log("Listening on port", PORT)
 
 
 wss.on("connection", ws => {
