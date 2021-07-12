@@ -42,6 +42,8 @@ wss.on("connection", ws => {
                     JSONSender.say(ws, "§7Prints Tesla's logo with a width of 100 and a height of 60 blocks");
                 }
                 else {
+
+                    const startTime = new Date();
                     const uri = params[0];
 
                     let width = parseInt(params[1]);
@@ -78,6 +80,24 @@ wss.on("connection", ws => {
                                         };
 
                                         JSONSender.say(ws, "§a§lDone!");
+
+                                        const endTime = new Date();
+
+                                        const execTime = new Date(endTime - startTime);
+
+                                        const execMS = execTime.getMilliseconds();
+                                        const execS = execTime.getSeconds();
+
+                                        if(execTime.getMinutes() == 0)
+                                        {
+                                            JSONSender.say(ws, "§7Printing took §f" + execS + "§7 seconds and §f" + execMS + "§7 milliseconds");
+                                        }
+                                        else
+                                        {
+                                            const execM = execTime.getMinutes();
+                                            JSONSender.say(ws, "§7Printing took §f" + execM + "§7 minute, §f" + execS + "§7 seconds and §f" + execMS + "§7 milliseconds");
+                                        }
+                                        
                                     });
 
                                 });
