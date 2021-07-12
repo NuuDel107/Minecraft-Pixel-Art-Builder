@@ -17,7 +17,7 @@ console.log("Listening on port", PORT);
 wss.on("connection", ws => {
     JSONSender.subscribe(ws, "PlayerMessage")
 
-    JSONSender.say(ws, "§2§lConnected to Pixel Art Builder");
+    JSONSender.say(ws, "\n\n§2§lConnected to Pixel Art Builder");
     JSONSender.say(ws, "§7For more information, type §o§f!print help");
 
     ws.on("message", packet => {
