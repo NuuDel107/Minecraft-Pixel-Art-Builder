@@ -34,10 +34,10 @@ wss.on("connection", ws => {
                 if(params[0] == "help")
                 {
                     JSONSender.say(ws, "Command syntax: ");
-                    JSONSender.say(ws, "!print (image url) (width) (height)*");
+                    JSONSender.say(ws, "!print <url> <width> <height>(optional)");
                     JSONSender.say(ws, "Examples: ");
                     JSONSender.say(ws, "!print https://www.google.com/images/srpr/logo3w.png 100");
-                    JSONSender.say(ws, "!print https://i.pinimg.com/originals/b0/46/8c/b0468c61baa72515ada2838c236466e8.jpg 69 69");
+                    JSONSender.say(ws, "!print https://i.pinimg.com/originals/b0/46/8c/b0468c61baa72515ada2838c236466e8.jpg 80 80");
                 }
                 else {
 
