@@ -9,7 +9,7 @@ module.exports = {
         var commandList = [];
         var blockList = [];
         
-        JSONSender.say(ws, "Parsing commands...")
+        JSONSender.say(ws, "§7Parsing commands...")
 
         block2D.forEach(blockLine => {
             blockLine.forEach(block => {
@@ -61,7 +61,22 @@ module.exports = {
             if(percentage >= lastPercentLog + 10)
             {
                 lastPercentLog += 10;
-                JSONSender.say(ws, lastPercentLog + "% done");
+                if(lastPercentLog <= 30)
+                {
+                    JSONSender.say(ws, "§c" + lastPercentLog + "% done");
+                    
+                }
+                else if(lastPercentLog <= 60)
+                {
+                    JSONSender.say(ws, "§e" + lastPercentLog + "% done");
+                    
+                }
+                else if(lastPercentLog <= 90)
+                {
+                    JSONSender.say(ws, "§a" + lastPercentLog + "% done");
+                    
+                }
+                
                 
             }
             
@@ -78,7 +93,7 @@ module.exports = {
 
         });
 
-        JSONSender.say(ws, "100% done!");
+        JSONSender.say(ws, "§a§l100% done!");
 
         return commandList;
 

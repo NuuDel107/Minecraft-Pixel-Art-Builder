@@ -17,8 +17,8 @@ console.log("Listening on port", PORT);
 wss.on("connection", ws => {
     JSONSender.subscribe(ws, "PlayerMessage")
 
-    JSONSender.say(ws, "Connected to Pixel Art Builder");
-    JSONSender.say(ws, "For more information, type !print help");
+    JSONSender.say(ws, "§2§lConnected to Pixel Art Builder");
+    JSONSender.say(ws, "§7For more information, type §o§f!print help");
 
     ws.on("message", packet => {
         const data = JSON.parse(packet);
@@ -33,14 +33,15 @@ wss.on("connection", ws => {
 
                 if(params[0] == "help")
                 {
-                    JSONSender.say(ws, "Command syntax: ");
-                    JSONSender.say(ws, "!print <url> <width> <height>(optional)");
-                    JSONSender.say(ws, "Examples: ");
-                    JSONSender.say(ws, "!print https://www.google.com/images/srpr/logo3w.png 100");
-                    JSONSender.say(ws, "!print https://i.pinimg.com/originals/b0/46/8c/b0468c61baa72515ada2838c236466e8.jpg 80 80");
+                    JSONSender.say(ws, "§l§6Command syntax: ");
+                    JSONSender.say(ws, "§7!print §a<url> §b<width> §e<height>(optional)");
+                    JSONSender.say(ws, "§l§6Examples: ");
+                    JSONSender.say(ws, "!print §ahttps://www.google.com/images/srpr/logo3w.png §b100");
+                    JSONSender.say(ws, "§7Prints Google's logo with a width of 100 blocks and automatic height");
+                    JSONSender.say(ws, "!print §ahttps://i.pinimg.com/originals/b0/46/8c/b0468c61baa72515ada2838c236466e8.jpg §b100 §e60");
+                    JSONSender.say(ws, "§7Prints Tesla's logo with a width of 100 and a height of 60 blocks");
                 }
                 else {
-
                     const uri = params[0];
 
                     let width = parseInt(params[1]);
@@ -64,7 +65,7 @@ wss.on("connection", ws => {
 
                                         const commands = CommandParser.parse(ws, block2D);
 
-                                        JSONSender.say(ws, "Printing...");
+                                        JSONSender.say(ws, "§7Printing...");
                                         for (let i = 0; i < commands.length; i++) {
                     
                                             JSONSender.sendCommand(ws, commands[i]);
@@ -76,22 +77,27 @@ wss.on("connection", ws => {
                                             
                                         };
 
-                                        JSONSender.say(ws, "Done!");
+                                        JSONSender.say(ws, "§a§lDone!");
                                     });
 
                                 });
                             }
                             
                             else {
-                                JSONSender.say(ws, "ERROR: Image must be of type 'jpeg', 'png', 'bmp' or 'gif'");
+                                console.log(res.headers["content-type"])
+                                JSONSender.say(ws, "§cERROR§f: Image must be of type 'jpeg', 'png', 'bmp' or 'gif'");
                             }
                         }
                         else {
-                            JSONSender.say(ws, "ERROR: Image not found (check link spelling?)");
+                            JSONSender.say(ws, "§cERROR§f: Image not found (check link spelling?)");
                         }
                     });
 
                 }
+
+            }
+            if(message == "!erase")
+            {
 
             }
         }

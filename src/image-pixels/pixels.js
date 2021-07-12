@@ -14,7 +14,7 @@ module.exports = {
         let block2D = [];
         let blocks = [];
 
-        JSONSender.say(ws, "Processing image...");
+        JSONSender.say(ws, "§7Processing image...");
 
         Jimp.read("image.png", (err, img) => {
             if (err) throw err;
@@ -62,7 +62,7 @@ module.exports = {
             })
 
             
-            JSONSender.say(ws, "Done!");
+            JSONSender.say(ws, "§a§lDone!");
             callback(block2D);
 
             
