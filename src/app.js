@@ -20,6 +20,7 @@ wss.on("connection", ws => {
 
     JSONSender.say(ws, "\n\n§2§lConnected to Pixel Art Builder");
     JSONSender.say(ws, "§7For more information, type §o§f!print help");
+    JSONSender.say(ws, "\n§7Github page: https://github.com/NuuDel107/Minecraft-Pixel-Art-Builder")
 
     ws.on("message", packet => {
         const data = JSON.parse(packet);
