@@ -83,7 +83,6 @@ module.exports = {
             
             
             rectanglePositions.forEach(rectPos => {
-                console.log(rectPos);
 
                 const x1 = rectPos.x1 + parseInt(xPos);
                 const x2 = rectPos.x2 + parseInt(xPos);
