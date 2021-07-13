@@ -33,13 +33,13 @@ wss.on("connection", ws => {
 
                 if(params[0] == "help")
                 {
-                    JSONSender.say(ws, "§l§6Command syntax: ");
-                    JSONSender.say(ws, "§7!print §a<url> §b<width> §e<height>(optional)");
-                    JSONSender.say(ws, "§l§6Examples: ");
-                    JSONSender.say(ws, "!print §ahttps://www.google.com/images/srpr/logo3w.png §b100");
-                    JSONSender.say(ws, "§7Prints Google's logo with a width of 100 blocks and automatic height");
-                    JSONSender.say(ws, "!print §ahttps://i.pinimg.com/originals/b0/46/8c/b0468c61baa72515ada2838c236466e8.jpg §b100 §e60");
-                    JSONSender.say(ws, "§7Prints Tesla's logo with a width of 100 and a height of 60 blocks");
+                    JSONSender.say(ws, "\n\n§l§6Command syntax: ");
+                    JSONSender.say(ws, "\n§7!print §c<x> <y> <z> §a<url> §b<width> §e<height>(optional)");
+                    JSONSender.say(ws, "\n§l§6Examples: ");
+                    JSONSender.say(ws, "\n!print §c50 20 50 §ahttps://www.google.com/images/srpr/logo3w.png §b100");
+                    JSONSender.say(ws, "§7Prints Google's logo at x: 50, y: 20, and z: 50 with a width of 100 blocks and automatic height");
+                    JSONSender.say(ws, "\n!print §c200 0 300 §ahttps://i.pinimg.com/originals/b0/46/8c/b0468c61baa72515ada2838c236466e8.jpg §b100 §e60");
+                    JSONSender.say(ws, "§7Prints Tesla's logo at x: 200, y: 0, and z: 300 with a width of 100 and a height of 60 blocks");
                 }
                 else {
 
