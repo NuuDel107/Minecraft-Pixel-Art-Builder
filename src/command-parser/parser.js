@@ -2,9 +2,7 @@ const rectangleDetect = require("./rectangleDetect");
 const JSONSender = require("../mc-server/jsonSender");
 
 module.exports = {
-    parse : function(ws, block2D) {
-
-        const yPos = 3;
+    parse : function(ws, xPos, yPos, zPos, block2D) {
 
         var commandList = [];
         var blockList = [];
