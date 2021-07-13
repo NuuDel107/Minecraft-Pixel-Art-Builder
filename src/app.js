@@ -16,7 +16,11 @@ console.log("Listening on port", PORT);
 
 
 wss.on("connection", ws => {
-    JSONSender.subscribe(ws, "PlayerMessage")
+
+    var lastPrintSize = [0, 0];
+    var lastPrintPos = [0, 0, 0];
+
+    JSONSender.subscribe(ws, "PlayerMessage");
 
     JSONSender.say(ws, "\n\n§2§lConnected to Pixel Art Builder");
     JSONSender.say(ws, "§7For more information, type §o§f!print help");
@@ -45,7 +49,22 @@ wss.on("connection", ws => {
 
                 else if(params[0] == "erase")
                 {
-                    
+                    const blockCount = lastPrintSize[0] * lastPrintSize[1];
+
+                    if(lastPrintSize == [0, 0])
+                    {
+                        JSONSender.say(ws, "§cERROR§f: Data of last print not found")
+                    }
+
+                    else if(blockCount > 32767)
+                    {
+                        
+                    }
+
+                    else {
+
+
+                    }
                 }
 
                 else {
@@ -56,8 +75,12 @@ wss.on("connection", ws => {
                     const yPos = params[1];
                     const zPos = params[2];
 
+
                     let width = parseInt(params[3]);
                     let height = parseInt(params[4]);
+
+                    lastPrintSize = [width, height];
+                    lastPrintPos = [xPos, yPos, zPos];
 
                     const uri = params[5];
 
