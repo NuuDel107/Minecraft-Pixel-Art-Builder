@@ -83,7 +83,15 @@ module.exports = {
             
             
             rectanglePositions.forEach(rectPos => {
-                const cmd = ["/fill", rectPos.x1, yPos, rectPos.y1, rectPos.x2, yPos, rectPos.y2, listBlock].join(" ")
+                console.log(rectPos);
+
+                const x1 = rectPos.x1 + parseInt(xPos);
+                const x2 = rectPos.x2 + parseInt(xPos);
+
+                const z1 = rectPos.y1 + parseInt(zPos);
+                const z2 = rectPos.y2 + parseInt(zPos);
+
+                const cmd = ["/fill", x1, yPos, z1, x2, yPos, z2, listBlock].join(" ")
 
                 commandList.push(cmd);
             });

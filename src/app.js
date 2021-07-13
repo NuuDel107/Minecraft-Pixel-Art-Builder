@@ -70,14 +70,14 @@ wss.on("connection", ws => {
 
                                     Pixels.get(ws, width, height, async block2D => {
 
-                                        const commands = CommandParser.parse(ws, block2D);
+                                        const commands = CommandParser.parse(ws, xPos, yPos, zPos, block2D);
 
                                         JSONSender.say(ws, "§7Printing...");
                                         for (let i = 0; i < commands.length; i++) {
                     
                                             JSONSender.sendCommand(ws, commands[i]);
 
-                                            
+                                            console.log(commands[i]);
                                             fs.writeFileSync("../log.txt", commands[i] + "\n", {flag: "a+"}); 
                                             
                                             await new Promise(resolve => setTimeout(resolve, 1));
