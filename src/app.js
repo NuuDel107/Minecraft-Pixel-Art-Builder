@@ -1,6 +1,7 @@
 const WebSocket = require("ws")
 const fs = require("fs")
 const request = require("request")
+const path = require("path");
 
 const Pixels = require("./image-pixels/pixels");
 const JSONSender = require("./mc-server/jsonSender");
@@ -41,6 +42,12 @@ wss.on("connection", ws => {
                     JSONSender.say(ws, "\n!print §c200 0 300 §ahttps://i.pinimg.com/originals/b0/46/8c/b0468c61baa72515ada2838c236466e8.jpg §b100 §e60");
                     JSONSender.say(ws, "§7Prints Tesla's logo at x: 200, y: 0, and z: 300 with a width of 100 and a height of 60 blocks");
                 }
+
+                else if(params[0] == "erase")
+                {
+                    
+                }
+
                 else {
 
                     const startTime = new Date();
@@ -64,7 +71,7 @@ wss.on("connection", ws => {
 
                                 request(uri).pipe(fs.createWriteStream("image.png")).on("close", () => {
 
-                                    fs.writeFileSync("../log.txt", " ");
+                                    fs.writeFileSync(path.join(__dirname, "/../log.txt"), "");
 
 
 
@@ -77,8 +84,7 @@ wss.on("connection", ws => {
                     
                                             JSONSender.sendCommand(ws, commands[i]);
 
-                                            console.log(commands[i]);
-                                            fs.writeFileSync("../log.txt", commands[i] + "\n", {flag: "a+"}); 
+                                            fs.writeFileSync(path.join(__dirname, "/../log.txt"), commands[i] + "\n", {flag: "a+"}); 
                                             
                                             await new Promise(resolve => setTimeout(resolve, 1));
                                             
@@ -119,10 +125,6 @@ wss.on("connection", ws => {
                     });
 
                 }
-
-            }
-            if(message == "!erase")
-            {
 
             }
         }
