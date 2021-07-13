@@ -90,12 +90,12 @@ wss.on("connection", ws => {
 
                                         if(execTime.getMinutes() == 0)
                                         {
-                                            JSONSender.say(ws, "§7Printing took §f" + execS + "§7 seconds and §f" + execMS + "§7 milliseconds");
+                                            JSONSender.say(ws, "§7Process took §f" + execS + "§7 seconds and §f" + execMS + "§7 milliseconds");
                                         }
                                         else
                                         {
                                             const execM = execTime.getMinutes();
-                                            JSONSender.say(ws, "§7Printing took §f" + execM + "§7 minute, §f" + execS + "§7 seconds and §f" + execMS + "§7 milliseconds");
+                                            JSONSender.say(ws, "§7Process took §f" + execM + "§7 minute, §f" + execS + "§7 seconds and §f" + execMS + "§7 milliseconds");
                                         }
                                         
                                     });
