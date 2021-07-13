@@ -44,10 +44,15 @@ wss.on("connection", ws => {
                 else {
 
                     const startTime = new Date();
-                    const uri = params[0];
 
-                    let width = parseInt(params[1]);
-                    let height = parseInt(params[2]);
+                    const xPos = params[0];
+                    const yPos = params[1];
+                    const zPos = params[2];
+
+                    let width = parseInt(params[3]);
+                    let height = parseInt(params[4]);
+
+                    const uri = params[5];
 
                     console.log(uri, width, height);
 
@@ -65,14 +70,14 @@ wss.on("connection", ws => {
 
                                     Pixels.get(ws, width, height, async block2D => {
 
-                                        const commands = CommandParser.parse(ws, block2D);
+                                        const commands = CommandParser.parse(ws, xPos, yPos, zPos, block2D);
 
                                         JSONSender.say(ws, "§7Printing...");
                                         for (let i = 0; i < commands.length; i++) {
                     
                                             JSONSender.sendCommand(ws, commands[i]);
 
-                                            
+                                            console.log(commands[i]);
                                             fs.writeFileSync("../log.txt", commands[i] + "\n", {flag: "a+"}); 
                                             
                                             await new Promise(resolve => setTimeout(resolve, 1));
