@@ -44,10 +44,15 @@ wss.on("connection", ws => {
                 else {
 
                     const startTime = new Date();
-                    const uri = params[0];
 
-                    let width = parseInt(params[1]);
-                    let height = parseInt(params[2]);
+                    const xPos = params[0];
+                    const yPos = params[1];
+                    const zPos = params[2];
+
+                    let width = parseInt(params[3]);
+                    let height = parseInt(params[4]);
+
+                    const uri = params[5];
 
                     console.log(uri, width, height);
 
