@@ -19,7 +19,7 @@ module.exports = {
         Jimp.read("image.png", (err, img) => {
             if (err) throw err;
 
-            if(Number.isNaN(height))
+            if(height = "-")
             {
                 img.resize(width, Jimp.AUTO);
             }
