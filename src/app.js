@@ -63,7 +63,9 @@ wss.on("connection", ws => {
 
                     else {
 
-
+                        const eraseCommand = ["/fill", lastPrintPos[0], lastPrintPos[1], lastPrintPos[2], (lastPrintPos[0] + lastPrintSize[0]), lastPrintPos[1], (lastPrintPos[2] + lastPrintSize[1]), "air"].join(" ")
+                        console.log(eraseCommand);
+                        JSONSender.sendCommand(ws, eraseCommand);
                     }
                 }
 
@@ -71,9 +73,9 @@ wss.on("connection", ws => {
 
                     const startTime = new Date();
 
-                    const xPos = params[0];
-                    const yPos = params[1];
-                    const zPos = params[2];
+                    const xPos = parseInt(params[0]);
+                    const yPos = parseInt(params[1]);
+                    const zPos = parseInt(params[2]);
 
 
                     let width = parseInt(params[3]);
