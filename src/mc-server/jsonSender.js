@@ -33,15 +33,15 @@ module.exports = {
 
             "header": {
                 "version": 1,
-                "requestId": uuid.v4(),     // Send unique ID each time
+                "requestId": uuid.v4(),
                 "messagePurpose": "commandRequest",
                 "messageType": "commandRequest"
             },
             "body": {
-                "version": 1,               // TODO: Needed?
-                "commandLine": cmd,         // Define the command
+                "version": 1,
+                "commandLine": cmd,
                 "origin": {
-                    "type": "player"          // Message comes from player
+                    "type": "player"
                 }
             }
             
@@ -53,15 +53,15 @@ module.exports = {
 
             "header": {
                 "version": 1,
-                "requestId": uuid.v4(),     // Send unique ID each time
+                "requestId": uuid.v4(),
                 "messagePurpose": "commandRequest",
                 "messageType": "commandRequest"
             },
             "body": {
-                "version": 1,               // TODO: Needed?
-                "commandLine": '/tellraw @a {"rawtext":[{"text":"' + message + '"}]}',         // Define the command
+                "version": 1,
+                "commandLine": '/tellraw @a {"rawtext":[{"text":"' + message + '"}]}',
                 "origin": {
-                    "type": "player"          // Message comes from player
+                    "type": "player"
                 }
             }
             
