@@ -20,7 +20,7 @@ wss.on("connection", ws => {
 
     JSONSender.say(ws, "\n\n§2§lConnected to Pixel Art Builder");
     JSONSender.say(ws, "§7For more information, type §o§f!print help");
-    JSONSender.say(ws, "\n§7Github page: https://github.com/NuuDel107/Minecraft-Pixel-Art-Builder")
+    JSONSender.say(ws, "\n§7Github page: https://github.com/NuuDel107/Minecraft-Pixel-Art-Builder\n")
 
     ws.on("message", packet => {
         const data = JSON.parse(packet);
@@ -41,7 +41,7 @@ wss.on("connection", ws => {
                     JSONSender.say(ws, "\n!print §c50 20 50 §b100 §e- §ahttps://www.google.com/images/srpr/logo3w.png");
                     JSONSender.say(ws, "§7Prints Google's logo at x: 50, y: 20, and z: 50 with a width of 100 blocks and automatic height");
                     JSONSender.say(ws, "\n!print §c200 0 300 §b100 §e60 §ahttps://i.pinimg.com/originals/b0/46/8c/b0468c61baa72515ada2838c236466e8.jpg");
-                    JSONSender.say(ws, "§7Prints Tesla's logo at x: 200, y: 0, and z: 300 with a width of 100 and a height of 60 blocks");
+                    JSONSender.say(ws, "§7Prints Tesla's logo at x: 200, y: 0, and z: 300 with a width of 100 and a height of 60 blocks\n");
                 }
 
                 else if(params[0] == "erase")
@@ -102,12 +102,12 @@ wss.on("connection", ws => {
 
                                         if(execTime.getMinutes() == 0)
                                         {
-                                            JSONSender.say(ws, "§7Process took §f" + execS + "§7 seconds and §f" + execMS + "§7 milliseconds");
+                                            JSONSender.say(ws, "§7Process took §f" + execS + "§7 seconds and §f" + execMS + "§7 milliseconds\n");
                                         }
                                         else
                                         {
                                             const execM = execTime.getMinutes();
-                                            JSONSender.say(ws, "§7Process took §f" + execM + "§7 minute, §f" + execS + "§7 seconds and §f" + execMS + "§7 milliseconds");
+                                            JSONSender.say(ws, "§7Process took §f" + execM + "§7 minute, §f" + execS + "§7 seconds and §f" + execMS + "§7 milliseconds\n");
                                         }
                                         
                                     });
@@ -117,11 +117,11 @@ wss.on("connection", ws => {
                             
                             else {
                                 console.log(res.headers["content-type"])
-                                JSONSender.say(ws, "§cERROR§f: Image must be of type 'jpeg', 'png', 'bmp' or 'gif'");
+                                JSONSender.say(ws, "§cERROR§f: Image must be of type 'jpeg', 'png', 'bmp' or 'gif'\n");
                             }
                         }
                         else {
-                            JSONSender.say(ws, "§cERROR§f: Image not found (check link spelling?)");
+                            JSONSender.say(ws, "§cERROR§f: Image not found (check link spelling?)\n");
                         }
                     });
 
